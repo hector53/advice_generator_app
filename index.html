@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Advice generator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vue.js"></script>
 </head>
+
 <body>
+  <div id="app">
+    <div class="container">
+      
+      <main>
+        <div class="cubreAdvice">
+          <div class="advice-card">
+            <div class="loading" v-if="loading" >
+              <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            </div>
+            <div v-else>
+              <h3>Advice #{{frase.id}}</h3>
+              <p >
+                "{{frase.advice}}"
+              </p>
+            </div>
+           
+            <p><img src="images/pattern-divider-desktop.svg" alt=""></p>
+          </div>
 
-  Advice #<!-- Advice ID goes here -->
+          <div class="btnRandom" @click="getFrase()">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
+                fill="#202733" />
+            </svg>
+          </div>
+        </div>
 
-  "<!-- Advice text goes here -->"
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      </main>
+
+      <footer>
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded by <a href="#">Héctor Acosta</a>.
+        </div>
+      </footer>
+
+    </div>
   </div>
+  <script src="js/axios.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
